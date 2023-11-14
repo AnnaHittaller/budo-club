@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-950 text-white;
+}
+
+@layer components {
+  .btn {
+    @apply bg-red-500 text-white px-3 py-2 flex items-center gap-2 hover:bg-red-800 transition duration-200 my-4;
+  }
+  .card {
+    @apply p-4 border-red-600 border-4;
+  }
+  .btn-outline {
+    @apply border-red-500 border-2 px-2 py-1 flex text-red-500 cursor-pointer hover:text-white hover:bg-red-500 transition duration-200 ease-in-out;
+  }
+  .underline-span {
+    @apply block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-red-500;
+  }
+  .big-red-text {
+    @apply text-red-500 font-black text-2xl;
+  }
+  .md-red-text {
+    @apply text-red-500 font-black text-lg;
+  }
+}
+
+@layer base {
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    @screen sm {
+      font-size: 14px;
+    }
+    @screen md {
+      font-size: 16px;
+    }
+  }
+
+  h1 {
+    @apply text-8xl font-black uppercase text-white;
+  }
+}

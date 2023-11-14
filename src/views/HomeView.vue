@@ -1,9 +1,17 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Hero from '../components/Hero.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Hero/>
   </main>
 </template>
+
+<style scoped>
+/* main {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid red;
+} */
+</style>
