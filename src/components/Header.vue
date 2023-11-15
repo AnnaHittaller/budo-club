@@ -6,24 +6,27 @@
                     <button class="btn-outline">Kontakt</button>
                 </RouterLink>
 
-                <RouterLink to="/" class=" group transition  duration-300 ">Home
+                <RouterLink to="/" class=" group transition duration-300 hidden md:inline-block">Home
                     <span class="underline-span"></span>
                 </RouterLink>
-                <div class="vertical-divider"></div>
-                <RouterLink to="/about" class=" group transition  duration-300 ">Über uns<span
+                <div class="vertical-divider hidden md:inline-block"></div>
+                <RouterLink to="/about" class=" group transition  duration-300 hidden md:inline-block">Über uns<span
                         class="underline-span"></span></RouterLink>
-                <div class="vertical-divider"></div>
-                <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 ">Jiu Jitsu<span
+                <div class="vertical-divider hidden md:inline-block"></div>
+                <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 hidden md:inline-block">Jiu Jitsu<span
                         class="underline-span"></span></RouterLink>
             </ul>
-            <RouterLink to="/"><img src="../assets/logo_small.png" alt="logo"></RouterLink>
+            <RouterLink to="/" class="hidden md:inline-block"><img src="../assets/logo_small.png" alt="logo"></RouterLink>
+            <div class="hamburger md:hidden ">
+                <Icon icon="game-icons:hamburger-menu" color="rgb(239 68 68)" width="30" class="transition duration-200 hover:scale-125 cursor-pointer" />
+            </div>
         </nav>
     </header>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router';
-
+import { Icon } from '@iconify/vue';
 
 </script>
 
@@ -44,5 +47,9 @@ import { RouterLink } from 'vue-router';
 
 header {
     z-index: 10;
+}
+
+.icon {
+    width: 100%;
 }
 </style>
