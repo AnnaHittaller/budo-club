@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed w-full">
+    <header class="absolute w-full">
         <nav class="flex justify-between items-center py-4 px-4 max-w-[1400px] m-auto">
             <ul class="flex justify-start gap-4 items-center">
                 <RouterLink to="/kontakt">

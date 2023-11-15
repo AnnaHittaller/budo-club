@@ -10,7 +10,7 @@ body {
 
 @layer components {
   .btn {
-    @apply border-red-500 border-2 px-2 py-1 flex bg-black text-white cursor-pointer hover:text-white hover:bg-red-500 transition duration-200 ease-in-out items-center gap-2 my-4;
+    @apply px-2 py-1 flex text-white cursor-pointer transition duration-200 ease-in-out items-center gap-2 mt-8 hover:shadow-lg shadow-red-500 bg-red-500 hover:translate-y-[2px];
   }
   .card {
     @apply p-4 border-red-600 border-4;
@@ -42,6 +42,23 @@ body {
   }
 
   h1 {
-    @apply text-4xl font-black uppercase text-white mb-4;
+    @apply text-4xl font-black uppercase text-white mb-4 md:text-6xl lg:text-8xl;
   }
+
+  h2 {
+    @apply text-2xl mb-4 md:text-4xl font-black
+  }
+
+  section {
+    @apply w-full py-8
+  }
+
+  section > div {
+    @apply max-w-7xl m-auto px-4 
+  }
+
+  h3 {
+    @apply text-xl font-bold text-center mb-4
+  }
+
 }
