@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center bg-white text-gray-950 max-w-sm">
+    <div class="flex flex-col items-center bg-white text-gray-950 max-w-xs">
         <img :src="imageSrc" alt="" class="bg-gray-500 aspect-[2/1] w-full object-cover grayscale">
         <div class="bg-red-500 h-1 w-full mb-4"></div>
         <div class="flex flex-col flex-grow justify-between items-center">
