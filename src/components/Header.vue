@@ -1,5 +1,23 @@
+<script setup>
+import { RouterLink, useRouter } from 'vue-router';
+import { Icon } from '@iconify/vue';
+import { ref, watchEffect } from 'vue';
+
+const route = useRouter()
+const path = ref(route.currentRoute.value.name);
+const isHome = ref(false);
+
+watchEffect(() => {
+    path.value = route.currentRoute.value.name;
+    isHome.value = path.value === 'home';
+    //console.log(path.value);
+    //console.log(isHome.value); 
+})
+
+</script>
+
 <template>
-    <header class="absolute w-full">
+    <header class="w-full" :class="isHome ? 'absolute' : 'static'">
         <nav class="flex justify-between items-center py-4 px-4 max-w-[1400px] m-auto">
             <ul class="flex justify-start gap-4 items-center">
                 <RouterLink to="/kontakt">
@@ -18,17 +36,13 @@
             </ul>
             <RouterLink to="/" class="hidden md:inline-block"><img src="../assets/logo_small.png" alt="logo"></RouterLink>
             <div class="hamburger md:hidden ">
-                <Icon icon="game-icons:hamburger-menu" color="rgb(239 68 68)" width="30" class="transition duration-200 hover:scale-125 cursor-pointer" />
+                <Icon icon="game-icons:hamburger-menu" color="rgb(239 68 68)" width="30"
+                    class="transition duration-200 hover:scale-125 cursor-pointer" />
             </div>
         </nav>
     </header>
 </template>
 
-<script setup>
-import { RouterLink } from 'vue-router';
-import { Icon } from '@iconify/vue';
-
-</script>
 
 <style scoped>
 .router-link-exact-active {

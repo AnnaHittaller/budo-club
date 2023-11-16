@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
+                
 <template>
     <footer class="relative bottom-0 max-w-7xl w-full left-1/2 transform -translate-x-1/2 mb-4 px-4 pt-8">
         <div class="columns-1 sm:columns-2 gap-4 mb-10 relative">
@@ -32,9 +36,6 @@
     </footer>
 </template>
 
-<script setup>
-import { RouterLink } from 'vue-router';
-</script>
 
 <style scoped>
 .vertical-divider {
@@ -43,9 +44,9 @@ import { RouterLink } from 'vue-router';
     height: 1em;
 }
 
-/* .router-link-exact-active {
+.router-link-exact-active {
      color: rgb(239 68 68); 
-} */
+}
 
 .full-height {
     min-height: 100%;

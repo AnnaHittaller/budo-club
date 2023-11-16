@@ -1,3 +1,7 @@
+<script setup>
+import { Icon } from '@iconify/vue';
+</script>
+
 <template>
     <div
         class="bg-[url('./assets/hero.png')] bg-cover bg-[bottom_2rem] sm:bg-center h-max min-h-[300px] md:min-h-[400px] lg:min-h-[500px] relative">
@@ -18,8 +22,5 @@
     </div>
 </template>
 
-<script setup>
-import { Icon } from '@iconify/vue';
-</script>
 
 <style  scoped></style>
