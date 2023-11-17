@@ -81,8 +81,8 @@ import CarouselSlider from '../components/CarouselSlider.vue';
           gefördert. In unserer Schule legen wir einen besonderen Fokus auf Partnerschonung und Selbstkontrolle, was
           bedeutet, dass Verletzungen grundsätzlich ausgeschlossen sind. So kannst du Dich voll und ganz auf Dein Training
           konzentrieren und Deine Fähigkeiten auf ein neues Level bringen.</p>
-        <RouterLink to="/">
-          <button class="btn max-md:m-auto mt-8">Mehr über Jiu Jitsu</button>
+        <RouterLink to="/jiu-jitsu">
+          <button class="btn m-auto mt-8 md:ml-0">Mehr über Jiu Jitsu</button>
         </RouterLink>
       </div>
     </section>

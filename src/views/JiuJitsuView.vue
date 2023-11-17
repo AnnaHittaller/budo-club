@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="bg-white text-gray-950">
+    <section class="bg-white text-gray-950 pb-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 content-center justify-center">
             <div class="md:col-span-2">
                 <h2 class="text-center">Jiu Jitsu</h2>

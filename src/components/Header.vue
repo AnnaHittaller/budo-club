@@ -14,30 +14,48 @@ watchEffect(() => {
     //console.log(isHome.value); 
 })
 
+let isMenuOpen = ref(false)
+//console.log(isMenuOpen, isMenuOpen.value)
+const toggleMobileMenu = () => {
+    isMenuOpen.value = isMenuOpen.value === false ? true : false
+
+    if (isMenuOpen.value === true) {
+        window.addEventListener("click", () => isMenuOpen.value = false)
+    } else {
+        window.removeEventListener("click")
+    }
+}
+
+
 </script>
 
 <template>
     <header class="w-full" :class="isHome ? 'absolute' : 'static'">
-        <nav class="flex justify-between items-center py-4 px-4 max-w-[1400px] m-auto">
-            <ul class="flex justify-start gap-4 items-center">
+        <nav class="flex justify-between items-center py-4 px-4 max-w-[1400px] m-auto h-min relative">
+            <ul class="flex md:justify-start gap-4 items-center  max-md:absolute max-md:top-[100%] max-md:translate-y-[0] max-md:left-0 max-md:right-0 max-md:flex-col max-md:bg-gray-950 max-md:py-10 max-md:z-10 max-md:border-b-2 max-md:border-red-500 max-md:shadow-lg"
+                :class="isMenuOpen ? '' : ' max-md:translate-y-[-500%]'">
                 <RouterLink to="/kontakt">
                     <button class="btn-outline">Kontakt</button>
                 </RouterLink>
-
-                <RouterLink to="/" class=" group transition duration-300 hidden md:inline-block">Home
+                <RouterLink to="/" class=" group transition duration-300 ">Home
                     <span class="underline-span"></span>
                 </RouterLink>
-                <div class="vertical-divider hidden md:inline-block"></div>
-                <RouterLink to="/about" class=" group transition  duration-300 hidden md:inline-block">Über uns<span
+                <div class="vertical-divider max-md:hidden"></div>
+                <RouterLink to="/about" class=" group transition  duration-300 ">Über uns<span
                         class="underline-span"></span></RouterLink>
-                <div class="vertical-divider hidden md:inline-block"></div>
-                <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 hidden md:inline-block">Jiu Jitsu<span
+                <div class="vertical-divider max-md:hidden"></div>
+                <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 ">Jiu Jitsu<span
                         class="underline-span"></span></RouterLink>
             </ul>
-            <RouterLink to="/" class="hidden md:inline-block"><img src="../assets/logo_small.png" alt="logo"></RouterLink>
-            <div class="hamburger md:hidden ">
+            <RouterLink to="/" class="max-md:h-16"><img src="../assets/logo_small.png" alt="logo" class="h-full">
+            </RouterLink>
+            <div class="hamburger md:hidden flex items-center justify-center">
                 <Icon icon="game-icons:hamburger-menu" color="rgb(239 68 68)" width="30"
-                    class="transition duration-200 hover:scale-125 cursor-pointer" />
+                    class="transition duration-200 hover:scale-125 cursor-pointer" @click.stop="toggleMobileMenu"
+                    :class="isMenuOpen ? 'hidden' : ''" />
+                <Icon icon="vaadin:close" color="rgb(239 68 68)" width="25" height="25"
+                    class="transition duration-200 hover:scale-125 cursor-pointer" @click.stop="toggleMobileMenu"
+                    :class="isMenuOpen ? '' : 'hidden'" />
             </div>
         </nav>
     </header>
@@ -65,5 +83,4 @@ header {
 
 .icon {
     width: 100%;
-}
-</style>
+}</style>
