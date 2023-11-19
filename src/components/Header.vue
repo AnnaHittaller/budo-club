@@ -15,25 +15,31 @@ watchEffect(() => {
 })
 
 let isMenuOpen = ref(false)
-//console.log(isMenuOpen, isMenuOpen.value)
+
 const toggleMobileMenu = () => {
-    isMenuOpen.value = isMenuOpen.value === false ? true : false
+    isMenuOpen.value = !isMenuOpen.value
+
+    const closeMenu = () => {
+        isMenuOpen.value = false
+        window.removeEventListener('click', closeMenu);
+    }
+
+    window.addEventListener("click", closeMenu)
 
     if (isMenuOpen.value === true) {
-        window.addEventListener("click", () => isMenuOpen.value = false)
+        window.addEventListener("click", closeMenu)
     } else {
-        window.removeEventListener("click")
+        window.removeEventListener("click", closeMenu)
     }
 }
-
 
 </script>
 
 <template>
     <header class="w-full" :class="isHome ? 'absolute' : 'static'">
         <nav class="flex justify-between items-center py-4 px-4 max-w-[1400px] m-auto h-min relative">
-            <ul class="flex md:justify-start gap-4 items-center  max-md:absolute max-md:top-[100%] max-md:translate-y-[0] max-md:left-0 max-md:right-0 max-md:flex-col max-md:bg-gray-950 max-md:py-10 max-md:z-10 max-md:border-b-2 max-md:border-red-500 max-md:shadow-lg"
-                :class="isMenuOpen ? '' : ' max-md:translate-y-[-500%]'">
+            <ul class="flex md:justify-start gap-4 items-center  max-md:absolute max-md:top-[100%] max-md:translate-y-[0] max-md:left-0 max-md:right-0 max-md:flex-col max-md:bg-gray-950 max-md:py-10 max-md:z-10 max-md:border-b-2 max-md:border-red-500 max-md:shadow-lg max-md:text-2xl"
+                :class="isMenuOpen ? '' : 'out-of-screen'">
                 <RouterLink to="/kontakt">
                     <button class="btn-outline">Kontakt</button>
                 </RouterLink>
@@ -43,19 +49,24 @@ const toggleMobileMenu = () => {
                 <div class="vertical-divider max-md:hidden"></div>
                 <RouterLink to="/about" class=" group transition  duration-300 ">Über uns<span
                         class="underline-span"></span></RouterLink>
+                        <div class="vertical-divider max-md:hidden"></div>
+                    <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 ">Jiu Jitsu<span
+                            class="underline-span"></span></RouterLink>
                 <div class="vertical-divider max-md:hidden"></div>
-                <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 ">Jiu Jitsu<span
+                <RouterLink to="/" class=" group transition  duration-300 ">Training<span
                         class="underline-span"></span></RouterLink>
+                <!-- <div class="vertical-divider max-md:hidden"></div>
+                <RouterLink to="/" class=" group transition  duration-300 ">Training Jugendliche und Erwachsene<span
+                        class="underline-span"></span></RouterLink> -->
+        
             </ul>
             <RouterLink to="/" class="max-md:h-16"><img src="../assets/logo_small.png" alt="logo" class="h-full">
             </RouterLink>
-            <div class="hamburger md:hidden flex items-center justify-center">
+            <div class="hamburger md:hidden flex items-center justify-center" @click.stop="toggleMobileMenu">
                 <Icon icon="game-icons:hamburger-menu" color="rgb(239 68 68)" width="30"
-                    class="transition duration-200 hover:scale-125 cursor-pointer" @click.stop="toggleMobileMenu"
-                    :class="isMenuOpen ? 'hidden' : ''" />
+                    class="transition duration-200 hover:scale-125 cursor-pointer" :class="{ hidden: isMenuOpen }" />
                 <Icon icon="vaadin:close" color="rgb(239 68 68)" width="25" height="25"
-                    class="transition duration-200 hover:scale-125 cursor-pointer" @click.stop="toggleMobileMenu"
-                    :class="isMenuOpen ? '' : 'hidden'" />
+                    class="transition duration-200 hover:scale-125 cursor-pointer" :class="{ hidden: !isMenuOpen }" />
             </div>
         </nav>
     </header>
@@ -83,4 +94,14 @@ header {
 
 .icon {
     width: 100%;
-}</style>
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .out-of-screen {
+        transform: translateY(-500%);
+    }
+
+}
+</style>

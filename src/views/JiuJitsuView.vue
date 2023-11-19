@@ -21,10 +21,14 @@
                     Sondereinsatzkräften praktiziert wurde. Erich Rahn war für die Verbreitung in Deutschland maßgeblich
                     verantwortlich. Er gründete die erste Jiu-Jitsu-Schule in Berlin. Seit dieser Zeit wird Jiu Jitsu
                     ständig weiterentwickelt und verbessert.</p>
+            </div>
+            <figure class="justify-self-center">
+                <img src="../assets/Chin-Gempin.png" alt="Chin-Gempin"
+                    class="justify-self-center max-md:max-h-[200px] grayscale">
+                <figcaption class="text-center mt-4 font-semibold">Chin Gempin</figcaption>
+            </figure>
         </div>
-        
-        <img src="../assets/jiu_jitsu_kanji.png" alt="Chin-Gempin" class="justify-self-center max-md:max-h-[200px]">
-    </div>
-</section></template>
+    </section>
+</template>
 
 <style scoped></style>
