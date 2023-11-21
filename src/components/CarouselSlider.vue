@@ -1,71 +1,132 @@
 <script setup>
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import { ref } from 'vue'
-const slider = ref(null)
 
-const slides = [
-    { id: '1', title: 'Budo Club Shogun Training', path: 'hero.png' },
-    { id: '2', title: 'Budo Club Shogun Training', path: 'Training.png' },
-    { id: '3', title: 'Budo Club Shogun Training', path: 'Kindertraining.png' },
-    { id: '4', title: 'Budo Club Shogun Training', path: 'Probetraining.png' },
-    { id: '5', title: 'Budo Club Shogun Training', path: 'hero.png' },
-]
+import { register } from 'swiper/element/bundle';
+register();
+import 'swiper/css/bundle';
 
-const breakpoints = {
-    100: {
-        itemsToShow: 1.5,
-        snapAlign: 'center',
-    },
-    // 700px and up
-    700: {
-        itemsToShow: 3.5,
-        snapAlign: 'center',
-    },
-    // 1024 and up
-    1024: {
-        itemsToShow: 4.5,
-        snapAlign: 'center',
-    },
-}
+// const onProgress = (e) => {
+//     const [swiper, progress] = e.detail;
+//     console.log(progress, swiper)
+// };
 
-const requireImages = async () => {
-    try {
-        for (const slide of slides) {
-            const imageModule = await import(`../assets/${slide.path}`);
-            slide.imageSrc = imageModule.default;
-            //console.log('Image loaded for slide', slide.id)
-        }
-    } catch (error) {
-        console.error(error);
-    }
+// const onSlideChange = (e) => {
+//     console.log('slide changed', e)
+// }
+
+const thumbsSwiper = ref(null);
+
+const setThumbsSwiper = (swiper) => {
+    thumbsSwiper.value = swiper;
 };
 
-requireImages();
-
-const handleClickSlide = (index) => {
-    slider.value.slideTo(index - 1)
+const breakpoints = {
+    640: {
+        slidesPerView: 2,
+    },
+    1024: {
+        slidesPerView: 3
+    }
 }
 
 </script>
 
-
 <template>
-    <Carousel :breakpoints="breakpoints" :wrap-around="false" class="px-10" ref="slider">
-        <Slide v-for="slide in slides" :key="slide.id" @click="handleClickSlide(slide.id)">
-            <img :src="slide.imageSrc" :alt="slide.title" class="carousel__item" />
-        </Slide>
+    <swiper-container id="my-Slider" thumbs-swiper="#my-thumbs" :slides-per-view="1" :space-between="10"
+        :centered-slides="true" :loop="false" :navigation="true" :pagination="{
+            clickable: true,
+        }" :breakpoints="breakpoints" @swiperprogress="onProgress" @swiperslidechange="onSlideChange"
+        keyboard="{enabled: true}" grab-cursor="true">
+        <swiper-slide class=" swiper-slide"><img src="../assets/Probetraining.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide"><img src="../assets/Kindertraining.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide"><img src="../assets/Training.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide"><img src="../assets/Kindertraining.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide"><img src="../assets/Probetraining.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide"><img src="../assets/Training.png" /></swiper-slide>
+    </swiper-container>
 
-        <template #addons>
-            <Navigation />
-            <Pagination />
-        </template>
-    </Carousel>
+    <swiper-container id="my-thumbs" @swiper="setThumbsSwiper" :loop="false" :spaceBetween="10" :slidesPerView="4"
+        :watchSlidesProgress="true" auto-scroll-offset="1">
+        <swiper-slide><img src="../assets/Probetraining.png" /></swiper-slide>
+        <swiper-slide><img src="../assets/Kindertraining.png" /></swiper-slide>
+        <swiper-slide><img src="../assets/Training.png" /></swiper-slide>
+        <swiper-slide><img src="../assets/Kindertraining.png" /></swiper-slide>
+        <swiper-slide><img src="../assets/Probetraining.png" /></swiper-slide>
+        <swiper-slide><img src="../assets/Training.png" /></swiper-slide>
+    </swiper-container>
 </template>
 
 
 <style>
-.carousel__item {
+swiper-container::part(bullet-active) {
+    background-color: rgb(239, 68, 68);
+}
+
+swiper-container::part(button-next),
+swiper-container::part(button-prev) {
+    height: 2.5rem;
+    padding: .5rem .25rem;
+    background-color: rgb(239, 68, 68);
+}
+
+#my-Slider {
+    --swiper-theme-color: white;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#my-Slider .swiper-slide-next img,
+#my-Slider .swiper-slide-prev img {
+    filter: grayscale(1)
+}
+
+#my-Slider .swiper-slide-active img {
+    filter: grayscale(0);
+    border: 2px solid rgb(239, 68, 68);
+}
+
+#my-thumbs .swiper-slide-thumb-active img {
+    opacity: 1;
+    filter: grayscale(0);
+    border: 2px solid rgb(239, 68, 68);
+}
+
+#my-thumbs {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+#my-thumbs img {
+    max-height: 100px;
+    opacity: .5;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+}
+
+#my-thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+#my-thumbs .swiper-slide img {
+    height: 100%;
+    max-height: 150px;
+
+}
+
+
+
+
+/* .carousel__item {
     height: auto;
     width: 100%;
     object-fit: cover;
@@ -104,5 +165,5 @@ const handleClickSlide = (index) => {
 .carousel__pagination-button:hover::after,
 .carousel__pagination-button--active::after {
     background-color: rgb(239, 68, 68);
-}
+} */
 </style>
