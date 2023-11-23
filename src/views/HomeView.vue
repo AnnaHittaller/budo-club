@@ -37,13 +37,13 @@ import CarouselSlider from '../components/CarouselSlider.vue';
           class="grid grid-cols-1 gap-6 justify-items-center justify-center pt-10 sm:grid-cols-2 md:grid-cols-3 md:text-sm">
           <Card title="Für Jugendliche und Erwachsene"
             text="Für Erwachsene ist Jiu Jitsu eine kraftvolle Möglichkeit, Stress abzubauen und sich in Topform zu bringen."
-            img="Training.png" />
+            img="Training.png" buttonLink="#training" />
           <Card title="Für Kinder ab 6"
             text="Für Kinder ab 6 Jahren bieten wir spezielle Kurse an, die ihre Energie kanalisieren und ihr Selbstbewusstsein stärken."
-            img="Kindertraining.png" />
+            img="Kindertraining.png" buttonLink="#kindertraining" />
           <Card title="Kostenloses Probetraining"
             text="Komm vorbei und sichere Dich ein kostenloses Probetraining, um einen Einblick in unsere vielfältigen Trainingsangebote zu erhalten!"
-            img="Probetraining.png" />
+            img="Probetraining.png" buttonLink="#probetraining" />
         </div>
       </div>
     </section>
@@ -72,9 +72,11 @@ import CarouselSlider from '../components/CarouselSlider.vue';
     </section>
     <section>
       <div class="relative">
-        <img src="../assets/jiu_jitsu_kanji.png" alt="Kanji von Jiu Jitsu" class="max-md:absolute max-h-[80%] max-md:top-[50%] max-md:left-[50%] max-md:translate-x-[-50%] max-md:translate-y-[-50%] max-md:-z-10 hue-rotate-[340deg] max-md:opacity-50 md:float-right md:pr-[10vw] md:max-h-[250px]">
+        <img src="../assets/jiu_jitsu_kanji.png" alt="Kanji von Jiu Jitsu"
+          class="max-md:absolute max-h-[80%] max-md:top-[50%] max-md:left-[50%] max-md:translate-x-[-50%] max-md:translate-y-[-50%] max-md:-z-10 hue-rotate-[340deg] max-md:opacity-50 md:float-right md:pr-[10vw] md:max-h-[250px]">
         <h2 class="max-md:text-center">Was ist Jiu Jitsu?</h2>
-        <p class="md:max-w-[800px] md:text-sm">Jiu Jitsu ist eine aus Japan stammende Kampfkunst und ist eine Selbstverteidigungsart, die sich ständig weiterentwickelt.
+        <p class="md:max-w-[800px] md:text-sm">Jiu Jitsu ist eine aus Japan stammende Kampfkunst und ist eine
+          Selbstverteidigungsart, die sich ständig weiterentwickelt.
           Diese beeindruckende Disziplin ist für jeden erlernbar und erweist sich besonders für Frauen als äußerst
           effektive Technik zur Selbstverteidigung. Durch das Training werden nicht nur die körperliche Fitness und
           Beweglichkeit gesteigert, sondern es wird auch ein tieferes Gefühl der Ausgeglichenheit und inneren Stärke
@@ -88,7 +90,7 @@ import CarouselSlider from '../components/CarouselSlider.vue';
     </section>
     <section class="bg-white">
       <div>
-        <CarouselSlider/>
+        <CarouselSlider />
       </div>
     </section>
   </main>

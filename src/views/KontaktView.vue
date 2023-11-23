@@ -1,5 +1,8 @@
 <script setup>
-
+const handleSubmit = () => {
+    console.log("submitted")
+    // import axios, send form through it, add a reactive toast and dislay it with v-if
+}
 </script>
 
 <template>
@@ -16,7 +19,7 @@
                 <br>
                 Bitte verwende nicht die Adresse unseres Dojos um Kontakt zu uns aufzunehmen.
             </p>
-            <form id="contact-form" name="simple-contact-form" action="https://formspree.io/f/mleykoqo" method="post"
+            <form id="contact-form" name="simple-contact-form" action="https://formspree.io/f/mleykoqo" method="post" @submit.prevent="handleSubmit"
                 class="w-full mt-8 max-w-xl">
                 <fieldset class="flex flex-col justify-center w-full m-auto gap-4">
                     <label for="name">Name

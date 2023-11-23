@@ -53,7 +53,7 @@ const toggleMobileMenu = () => {
                     <RouterLink to="/jiu-jitsu" class=" group transition  duration-300 ">Jiu Jitsu<span
                             class="underline-span"></span></RouterLink>
                 <div class="vertical-divider max-md:hidden"></div>
-                <RouterLink to="/" class=" group transition  duration-300 ">Training<span
+                <RouterLink to="/training" class=" group transition  duration-300 ">Training<span
                         class="underline-span"></span></RouterLink>
                 <!-- <div class="vertical-divider max-md:hidden"></div>
                 <RouterLink to="/" class=" group transition  duration-300 ">Training Jugendliche und Erwachsene<span

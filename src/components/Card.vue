@@ -14,6 +14,10 @@ const props = defineProps({
     img: {
         type: String,
         required: true
+    },
+    buttonLink: {
+        type: String,
+        required: true
     }
 })
 
@@ -41,7 +45,7 @@ requireImage();
                 <h3>{{ props.title }}</h3>
                 <p>{{ props.text }}</p>
             </div>
-            <RouterLink to="/about">
+            <RouterLink :to="{ path: '/training', hash: props.buttonLink }">
                 <button class="btn my-4 justify-self-end">Mehr erfahren</button>
             </RouterLink>
         </div>

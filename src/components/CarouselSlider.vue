@@ -35,7 +35,7 @@ const breakpoints = {
     <swiper-container id="my-Slider" thumbs-swiper="#my-thumbs" :slides-per-view="1" :space-between="10"
         :centered-slides="true" :loop="false" :navigation="true" :pagination="{
             clickable: true,
-        }" :breakpoints="breakpoints" @swiperprogress="onProgress" @swiperslidechange="onSlideChange"
+        }" :breakpoints="breakpoints"
         keyboard="{enabled: true}" grab-cursor="true">
         <swiper-slide class=" swiper-slide"><img src="../assets/Probetraining.png" /></swiper-slide>
         <swiper-slide class="swiper-slide"><img src="../assets/Kindertraining.png" /></swiper-slide>
@@ -79,8 +79,8 @@ swiper-container::part(button-prev) {
     align-items: center;
 }
 
-#my-Slider .swiper-slide-next img,
-#my-Slider .swiper-slide-prev img {
+#my-Slider .swiper-slide img,
+#my-Slider .swiper-slide img {
     filter: grayscale(1)
 }
 
