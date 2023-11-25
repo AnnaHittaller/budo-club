@@ -23,7 +23,7 @@ const props = defineProps({
 })
 
 
-const imageSrc = computed(() => `../assets/${props.img}`);
+const imageSrc = computed(() => `/assets/${props.img}`);
 
 </script>
 
