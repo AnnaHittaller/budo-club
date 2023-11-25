@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { defineProps, ref } from 'vue';
+import { defineProps, computed } from 'vue';
+
 
 const props = defineProps({
     title: {
@@ -22,23 +23,28 @@ const props = defineProps({
 })
 
 
-const imageSrc = ref(null);
+//const imageSrc = ref(null);
+const imageSrc = computed(() => `src/assets/${props.img}`);
+// const requireImage = async () => {
+//     try {
+//         const imageModule = await import(`../assets/${props.img}`);
+//         imageSrc.value = imageModule.default;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 
-const requireImage = async () => {
-    try {
-        const imageModule = await import(`../assets/${props.img}`);
-        imageSrc.value = imageModule.default;
-    } catch (error) {
-        console.error(error);
-    }
-};
-requireImage();
+//const requireImage = () => {
+//    imageSrc.value = require(`../assets/${props.img}`);
+//};
+//requireImage();
 
 </script>
 
 <template>
     <div class="flex flex-col items-center bg-white text-gray-950 max-w-xs">
-        <img :src="imageSrc" alt="" class="bg-gray-500 aspect-[2/1] w-full object-cover grayscale">
+        <img :src="imageSrc" alt="Budo Club Shogun Euskirchen"
+            class="bg-gray-500 aspect-[2/1] w-full object-cover grayscale">
         <div class="bg-red-500 h-1 w-full mb-4"></div>
         <div class="flex flex-col flex-grow justify-between items-center">
             <div class="px-4">
