@@ -23,21 +23,7 @@ const props = defineProps({
 })
 
 
-//const imageSrc = ref(null);
-const imageSrc = computed(() => `src/assets/${props.img}`);
-// const requireImage = async () => {
-//     try {
-//         const imageModule = await import(`../assets/${props.img}`);
-//         imageSrc.value = imageModule.default;
-//     } catch (error) {
-//         console.error(error);
-//     }
-// };
-
-//const requireImage = () => {
-//    imageSrc.value = require(`../assets/${props.img}`);
-//};
-//requireImage();
+const imageSrc = computed(() => `../assets/${props.img}`);
 
 </script>
 
