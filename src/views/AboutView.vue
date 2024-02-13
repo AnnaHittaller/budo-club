@@ -1,6 +1,6 @@
 <template>
   <section class="bg-white flex flex-col justify-center items-center text-gray-950">
-    <h2>This is an about page</h2>
+    <h2>Über uns</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 content-center justify-center">
       <div class="md:col-span-2">
         <p>Unser Verein wurde 1997 gegründet und wir sind Mitglied in der Jiu Jitsu Union NW.
