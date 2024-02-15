@@ -9,11 +9,11 @@ let nachricht = {
 const toast = ref(null)
 
 const handleSubmit = async () => {
-    console.log("submitted")
-    // import axios, send form through it, add a reactive toast and dislay it with v-if
+    //console.log("submitted")
+    
     try {
         const response = await axios.post("https://formspree.io/f/mleykoqo", nachricht)
-        console.log(nachricht, response)
+        //console.log(nachricht, response)
         toast.value = "Danke, deine Nachricht wurde gesendet!"
 
         nachricht = {
